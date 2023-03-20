@@ -4,8 +4,11 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
+// const indexRouter = require('./routes/index');
+// const usersRouter = require('./routes/users');
+
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+const commentsRouter = require('./routes/comments');
 
 const app = express();
 
@@ -20,7 +23,22 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+//app.use('/users', usersRouter);
+app.use('/comments', commentsRouter );
+
+app.post("/comments", async (req, res) =>{
+         const id = req.body.id;
+         const content  = req.body.content;
+    
+         if(!content){
+            return res.sendStatus(400);
+         }else{
+            res.status(201).json({
+            id: id,
+            content: content
+           });
+         }
+        });
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
