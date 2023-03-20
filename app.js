@@ -28,17 +28,23 @@ app.use('/comments', commentsRouter );
 
 app.post("/comments", async (req, res) =>{
          const id = req.body.id;
-         const content  = req.body.content;
-    
-         if(!content){
+         const post_id = req.body.post_id;
+         const name = req.body.name;
+         const email = req.body.email;
+         const body = req.body.body;
+         if(!id){
             return res.sendStatus(400);
          }else{
             res.status(201).json({
             id: id,
-            content: content
-           });
-         }
-        });
+            post_id: post_id,
+            name: name,
+            email: email,
+            body: body,
+        
+         });
+        }
+    });
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
