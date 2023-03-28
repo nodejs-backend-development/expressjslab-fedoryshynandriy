@@ -2,7 +2,7 @@
 const getComments = async (req, res) => {
     const {id} = req.params;
     const start = process.hrtime(); 
-    fetch('https://gorest.co.in/public/v2/posts/'+id+'/comments', {
+    fetch(`https://gorest.co.in/public/v2/posts/${id}/comments`, {
         headers: {
             'Authorization': 'Bearer eb214f865d9d8eebdc842a6d506739713f8d8eae3a251a3c3bec3d36410852a8'
         }
@@ -22,7 +22,7 @@ const addComment = async (req, res) => {
     const {id} = req.params;
     const newComment = req.body;
     const start = process.hrtime(); 
-    fetch("https://gorest.co.in/public/v2/posts/"+id+"/comments", {
+    fetch(`https://gorest.co.in/public/v2/posts/${id}/comments`, {
         method: "POST",
         body: JSON.stringify(newComment),
         headers: {
