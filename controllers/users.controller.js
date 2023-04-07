@@ -1,3 +1,4 @@
+
 const users = [
     {
         id: 1,
@@ -34,3 +35,4 @@ module.exports = {
     getUsers,
     addUser,
 };
+

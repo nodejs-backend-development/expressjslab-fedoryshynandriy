@@ -8,3 +8,8 @@ router.get('/', (req, res) => {
 });
 
 module.exports = router;
+
+
+
+
+// //  "start": "node ./bin/www",
